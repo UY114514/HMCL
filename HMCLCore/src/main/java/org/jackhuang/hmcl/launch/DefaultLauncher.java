@@ -98,14 +98,14 @@ public class DefaultLauncher extends Launcher {
                 res.add("-Duser.home=" + options.getGameDir().getParent());
 
             // Force using G1GC with its settings
-            if (options.getJava().getParsedVersion() >= JavaVersion.JAVA_7) {
-                res.add("-XX:+UnlockExperimentalVMOptions");
-                res.add("-XX:+UseG1GC");
-                res.add("-XX:G1NewSizePercent=20");
-                res.add("-XX:G1ReservePercent=20");
-                res.add("-XX:MaxGCPauseMillis=50");
-                res.add("-XX:G1HeapRegionSize=16M");
-            }
+//            if (options.getJava().getParsedVersion() >= JavaVersion.JAVA_7) {
+//                res.add("-XX:+UnlockExperimentalVMOptions");
+//                res.add("-XX:+UseG1GC");
+//                res.add("-XX:G1NewSizePercent=20");
+//                res.add("-XX:G1ReservePercent=20");
+//                res.add("-XX:MaxGCPauseMillis=50");
+//                res.add("-XX:G1HeapRegionSize=16M");
+//            }
 
             if (options.getMetaspace() != null && options.getMetaspace() > 0)
                 if (options.getJava().getParsedVersion() < JavaVersion.JAVA_8)
@@ -113,8 +113,8 @@ public class DefaultLauncher extends Launcher {
                 else
                     res.add("-XX:MetaspaceSize=" + options.getMetaspace() + "m");
 
-            res.add("-XX:-UseAdaptiveSizePolicy");
-            res.add("-XX:-OmitStackTraceInFastThrow");
+//            res.add("-XX:-UseAdaptiveSizePolicy");
+//            res.add("-XX:-OmitStackTraceInFastThrow");
             res.add("-Xmn128m");
 
             // As 32-bit JVM allocate 320KB for stack by default rather than 64-bit version allocating 1MB,

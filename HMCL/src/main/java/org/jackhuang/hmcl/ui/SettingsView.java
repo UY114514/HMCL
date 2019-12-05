@@ -49,12 +49,12 @@ public abstract class SettingsView extends StackPane {
     protected final FontComboBox cboFont;
     protected final MultiFileItem<EnumCommonDirectory> fileCommonLocation;
     protected final Label lblDisplay;
-    protected final Label lblUpdate;
-    protected final Label lblUpdateSub;
-    protected final Text lblUpdateNote;
-    protected final JFXRadioButton chkUpdateStable;
-    protected final JFXRadioButton chkUpdateDev;
-    protected final JFXButton btnUpdate;
+//    protected final Label lblUpdate;
+//    protected final Label lblUpdateSub;
+//    protected final Text lblUpdateNote;
+//    protected final JFXRadioButton chkUpdateStable;
+//    protected final JFXRadioButton chkUpdateDev;
+//    protected final JFXButton btnUpdate;
     protected final ScrollPane scroll;
     protected final MultiFileItem<EnumBackgroundImage> backgroundItem;
     protected final StackPane themeColorPickerContainer;
@@ -109,71 +109,71 @@ public abstract class SettingsView extends StackPane {
                         settingsPane.getContent().add(sponsorPane);
                     }
 
-                    ComponentSublist updatePane = new ComponentSublist();
-                    updatePane.setTitle(i18n("update"));
-                    updatePane.setHasSubtitle(true);
-                    {
-                        VBox headerLeft = new VBox();
-
-                        lblUpdate = new Label(i18n("update"));
-                        lblUpdateSub = new Label();
-                        lblUpdateSub.getStyleClass().add("subtitle-label");
-
-                        headerLeft.getChildren().setAll(lblUpdate, lblUpdateSub);
-                        updatePane.setHeaderLeft(headerLeft);
-                    }
-
-                    {
-                        btnUpdate = new JFXButton();
-                        btnUpdate.setOnMouseClicked(e -> onUpdate());
-                        btnUpdate.getStyleClass().add("toggle-icon4");
-                        btnUpdate.setGraphic(SVG.update(Theme.blackFillBinding(), 20, 20));
-
-                        updatePane.setHeaderRight(btnUpdate);
-                    }
-
-                    {
-                        VBox content = new VBox();
-                        content.setSpacing(8);
-
-                        chkUpdateStable = new JFXRadioButton(i18n("update.channel.stable"));
-                        chkUpdateDev = new JFXRadioButton(i18n("update.channel.dev"));
-
-                        VBox noteWrapper = new VBox();
-                        noteWrapper.setStyle("-fx-padding: 10 0 0 0;");
-                        lblUpdateNote = new Text(i18n("update.note"));
-                        noteWrapper.getChildren().setAll(lblUpdateNote);
-
-                        content.getChildren().setAll(chkUpdateStable, chkUpdateDev, noteWrapper);
-
-                        updatePane.getContent().add(content);
-                    }
-                    settingsPane.getContent().add(updatePane);
+//                    ComponentSublist updatePane = new ComponentSublist();
+//                    updatePane.setTitle(i18n("update"));
+//                    updatePane.setHasSubtitle(true);
+//                    {
+//                        VBox headerLeft = new VBox();
+//
+//                        lblUpdate = new Label(i18n("update"));
+//                        lblUpdateSub = new Label();
+//                        lblUpdateSub.getStyleClass().add("subtitle-label");
+//
+//                        headerLeft.getChildren().setAll(lblUpdate, lblUpdateSub);
+//                        updatePane.setHeaderLeft(headerLeft);
+//                    }
+//
+//                    {
+//                        btnUpdate = new JFXButton();
+//                        btnUpdate.setOnMouseClicked(e -> onUpdate());
+//                        btnUpdate.getStyleClass().add("toggle-icon4");
+//                        btnUpdate.setGraphic(SVG.update(Theme.blackFillBinding(), 20, 20));
+//
+//                        updatePane.setHeaderRight(btnUpdate);
+//                    }
+//
+//                    {
+//                        VBox content = new VBox();
+//                        content.setSpacing(8);
+//
+//                        chkUpdateStable = new JFXRadioButton(i18n("update.channel.stable"));
+//                        chkUpdateDev = new JFXRadioButton(i18n("update.channel.dev"));
+//
+//                        VBox noteWrapper = new VBox();
+//                        noteWrapper.setStyle("-fx-padding: 10 0 0 0;");
+//                        lblUpdateNote = new Text(i18n("update.note"));
+//                        noteWrapper.getChildren().setAll(lblUpdateNote);
+//
+//                        content.getChildren().setAll(chkUpdateStable, chkUpdateDev, noteWrapper);
+//
+//                        updatePane.getContent().add(content);
+//                    }
+//                    settingsPane.getContent().add(updatePane);
                 }
 
-                {
-                    BorderPane updatePane = new BorderPane();
-                    {
-                        VBox headerLeft = new VBox();
-
-                        Label help = new Label(i18n("help"));
-                        Label helpSubtitle = new Label(i18n("help.detail"));
-                        helpSubtitle.getStyleClass().add("subtitle-label");
-
-                        headerLeft.getChildren().setAll(help, helpSubtitle);
-                        updatePane.setLeft(headerLeft);
-                    }
-
-                    {
-                        JFXButton btnExternal = new JFXButton();
-                        btnExternal.setOnMouseClicked(e -> onHelp());
-                        btnExternal.getStyleClass().add("toggle-icon4");
-                        btnExternal.setGraphic(SVG.openInNew(Theme.blackFillBinding(), -1, -1));
-
-                        updatePane.setRight(btnExternal);
-                    }
-                    settingsPane.getContent().add(updatePane);
-                }
+//                {
+//                    BorderPane updatePane = new BorderPane();
+//                    {
+//                        VBox headerLeft = new VBox();
+//
+//                        Label help = new Label(i18n("help"));
+//                        Label helpSubtitle = new Label(i18n("help.detail"));
+//                        helpSubtitle.getStyleClass().add("subtitle-label");
+//
+//                        headerLeft.getChildren().setAll(help, helpSubtitle);
+//                        updatePane.setLeft(headerLeft);
+//                    }
+//
+//                    {
+//                        JFXButton btnExternal = new JFXButton();
+//                        btnExternal.setOnMouseClicked(e -> onHelp());
+//                        btnExternal.getStyleClass().add("toggle-icon4");
+//                        btnExternal.setGraphic(SVG.openInNew(Theme.blackFillBinding(), -1, -1));
+//
+//                        updatePane.setRight(btnExternal);
+//                    }
+//                    settingsPane.getContent().add(updatePane);
+//                }
 
                 {
                     fileCommonLocation = new MultiFileItem<>(true);
@@ -523,7 +523,10 @@ public abstract class SettingsView extends StackPane {
     }
 
     protected abstract void onUpdate();
+
     protected abstract void onHelp();
+
     protected abstract void onExportLogs();
+
     protected abstract void onSponsor();
 }
